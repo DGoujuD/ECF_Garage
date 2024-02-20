@@ -1,0 +1,107 @@
+CREATE DATABASE garage;
+
+CREATE TABLE Employes
+(
+    id_employe int NOT NULL AUTO_INCREMENT, -- identifiant unique
+    mot_de_passe VARCHAR(50) NOT NULL,
+    nom VARCHAR(50) NOT NULL, 
+    prenom VARCHAR(50) NOT NULL, 
+    date_de_naissance DATE, -- obligatoire si seulement deux employés ont le même nom et prénom
+    tel_pro VARCHAR(12) NOT NULL,
+    mail_pro VARCHAR(50) NOT NULL,
+    poste VARCHAR(30) NOT NULL,
+    PRIMARY KEY	(id_employe)
+);
+
+INSERT INTO employes
+	(nom, prenom, mot_de_passe, date_de_naissance, tel_pro, mail_pro, poste)
+    
+VALUES
+	('Parrot', 'Vincent','**********', '1986-11-09', '0601020304', 'Parrot.Vince@garage.com', 'Administrateur');
+
+
+CREATE TABLE Vehicules
+(
+    id_vehicule VARCHAR(20) PRIMARY KEY,
+    marque VARCHAR(20) NOT NULL,
+    modele VARCHAR(20) NOT NULL,
+    version VARCHAR(30) NOT NULL,
+    annee int NOT NULL,
+    kilometrage int NOT NULL,
+    puissance_fiscale int NOT NULL,
+    energie VARCHAR(10) NOT NULL,
+    boîte_de_vitesse VARCHAR(12) NOT NULL,
+    commentaire VARCHAR(1000) NOT NULL,
+    image VARCHAR(200) NOT NULL REFERENCES Image_vehicule (adresse_img) -- lien stocké dans la table Image_véhicule
+);
+
+
+
+CREATE TABLE image_vehicule
+(
+    id_vehicule VARCHAR(20) REFERENCES vehicules (id_vehicule),
+    adresse_img VARCHAR(200) 
+);
+	
+
+CREATE TABLE horaire
+(
+    id_jour int NOT NULL PRIMARY KEY,
+    nom_jour VARCHAR(8) NOT NULL,
+    heure_ouverture_matin VARCHAR(5) ,
+    heure_fermeture_matin VARCHAR(5),
+    heure_ouverture_soir VARCHAR(5),
+    heure_fermeture_soir VARCHAR(5)
+) ;
+
+
+INSERT INTO horaire (id_jour, nom_jour, heure_ouverture_matin, heure_fermeture_matin, heure_ouverture_soir, heure_fermeture_soir)
+
+VALUES 
+(1, 'Lundi', '08h45', '12h00', '14h00', '18h00'),
+(2,'Mardi', '08h45', '12h00', '14h00', '18h00'),
+(3, 'Mercredi', '08h45', '12h00', '14h00', '18h00'),
+(4, 'Jeudi', '08h45', '12h00', '14h00', '18h00'),
+(5, 'Vendredi', '08h45', '12h00', '14h00', '18h00'),
+(6, 'Samedi', '08h45', '12h00', '', ''),
+(7, 'Dimanche', 'Fermé', '', '', '') ;
+
+
+CREATE TABLE contact
+(
+    id_message int NOT NULL PRIMARY KEY,
+    nom VARCHAR(50) NOT NULL,
+    prenom VARCHAR(50) NOT NULL,
+    mail VARCHAR(50) NOT NULL,
+    num_tel VARCHAR(50),
+    message VARCHAR(1000)
+);
+
+
+CREATE TABLE client
+(
+    id_client int NOT NULL AUTO_INCREMENT PRIMARY KEY,
+    nom VARCHAR(50) NOT NULL,
+    prenom VARCHAR(50) NOT NULL,
+    mail VARCHAR(50) NOT NULL,
+    num_tel int,
+    prestation VARCHAR(100) REFERENCES services (id_prestation),
+    somme_payee FLOAT 
+);
+
+CREATE TABLE services
+(
+    id_prestation VARCHAR(50) NOT NULL PRIMARY KEY, 
+    prix FLOAT NOT NULL,
+    description VARCHAR(1000) 
+);
+
+
+CREATE TABLE avis
+(
+    id_avis int NOT NULL PRIMARY KEY AUTO_INCREMENT,
+    nom VARCHAR(50) NOT NULL,
+    commentaire VARCHAR(1000) NOT NULL,
+    note int NOT NULL
+);    
+    
