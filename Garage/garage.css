@@ -1,0 +1,109 @@
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@100;200;300;400;500;600;700;800;900&display=swap");
+
+body { 
+    font-family: "Montserrat", sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+header {
+    background-color: #333;
+    color: #fff;
+    padding: 20px;
+    text-align: center;
+}
+
+img {
+    background-color: #fff;
+    width: 250px;
+    height: 100px;
+}
+
+nav ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    text-align: center;
+}
+
+nav ul li {
+    display: inline;
+    margin-right: 20px;
+}
+
+nav ul li a {
+    text-decoration: none;
+    color: #333;
+}
+
+nav a:hover {
+    text-decoration: underline;
+}
+
+#search { 
+    background-color: #f4f4f4;
+    padding: 20px;
+    text-align: center;
+}
+
+#searchInput {
+    padding: 10px;
+    width: 300px;
+}
+
+#featuredCars {
+    padding: 20px;
+}
+
+table {
+    width: 90%;
+    border-collapse: collapse;
+}
+th, td {
+    border: 1px solid #ddd;
+    padding: 8px;
+    text-align: center;
+}
+th {
+    background-color: #f2f2f2;
+    color: black;
+}
+
+footer {
+    background-color: #333;
+    color: #fff;
+    text-align: center;
+    padding: 20px;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+}
+
+form {
+    max-width:400px;
+    margin-top: 100px ;
+    margin-left: 50%;
+}
+
+label, input, textarea {
+    display: block;
+    margin-bottom: 10px;
+}
+
+form > button {
+    border-radius: 10%;
+    padding: 8px
+}
+
+#info_form {
+    text-align: center;
+    padding-top: 30px;
+}
+
+form > button:hover {
+    background-color: rgb(22, 169, 214);
+}
+.obligatoire { 
+    color:red;
+}
+

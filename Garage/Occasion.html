@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Garage V.Parrot</title>
+    <link rel="stylesheet" href="garage.css">
+
+<?php
+
+$servername = "localhost";
+$username = "root";
+$dbname = "garage";
+
+// Connexion à la base de données
+$connection = mysqli_connect($servername, $username, $dbname);
+
+// Vérifier la connexion
+if (!$conn) {
+    die("Connection failed: " . mysqli_connect_error());
+}
+echo "Connected successfully";
+
+?>
+</head>
+<body>
+    <header>
+        <img src="ressources/logo_garage_retouche.png" alt="Garage V.Parrot">
+    </header>
+    <nav>
+        <ul>
+            <li><a href="Accueil.html">Accueil</a></li>
+            <li><a href="#">Services</a></li>
+            <li><a href="Occasion.html">Voitures à vendre</a></li>
+            <li><a href="contact.html">Contact</a></li>
+        </ul>
+    </nav>
+    <section id="search">
+        <h2>Recherche de voitures d'occasion</h2>
+        <form action="#">
+            <input type="text" id="searchInput" placeholder="Rechercher une voiture...">
+            <button type="submit">Rechercher</button>
+        </form>
+    </section>
+    <section id="featuredCars">
+        <h2>Nos voitures en vedette</h2>
+        
+    </section>
+    <footer>
+        <p>&copy; VParrot 2024 </p>
+    </footer>
+</body>
+</html>
